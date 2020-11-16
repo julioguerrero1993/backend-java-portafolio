@@ -1,27 +1,24 @@
 package com.example.turismo.entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity(name = "check_list")
-public class CheckListEntity {
+@Entity(name = "instalaciones")
+public class InstalacionesEntity {
 	
 	@Id
-	private int id_checklist;
+	private int id_instalacion;
 	
-	@Column( name = "nombe")
 	private String nombre;
 	
-	@Column( name = "descrpcion")
 	private String descripcion;
 	
-	public int getId_checklist() {
-		return id_checklist;
+	public int getId_instalacion() {
+		return id_instalacion;
 	}
 
-	public void setId_checklist(int id_checklist) {
-		this.id_checklist = id_checklist;
+	public void setId_instalacion(int id_instalacion) {
+		this.id_instalacion = id_instalacion;
 	}
 
 	public String getNombre() {

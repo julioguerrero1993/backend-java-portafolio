@@ -11,7 +11,7 @@ public class EstadoEntity {
 	@Id
     private int id_estado;
 	
-	@Column(name="nombre")
+	//@Column(name="nombre")
 	private String nombre;
 	
 	public int getId_estado() {

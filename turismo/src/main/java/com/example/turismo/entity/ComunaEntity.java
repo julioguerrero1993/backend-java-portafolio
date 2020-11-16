@@ -1,17 +1,29 @@
 package com.example.turismo.entity;
 
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity(name = "comuna")
-public class ComunaEntity {
+public class ComunaEntity implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	private int id_comuna;
 	
 	private String nombre;
 	
-	private int ciudad;
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cuidad", referencedColumnName = "id_ciudad")
+	private CiudadEntity cuidad;
 
 	public int getId_comuna() {
 		return id_comuna;
@@ -29,12 +41,12 @@ public class ComunaEntity {
 		this.nombre = nombre;
 	}
 
-	public int getCiudad() {
-		return ciudad;
+	public CiudadEntity getCiudad() {
+		return cuidad;
 	}
 
-	public void setCiudad(int ciudad) {
-		this.ciudad = ciudad;
+	public void setCiudad(CiudadEntity ciudad) {
+		this.cuidad = ciudad;
 	}
 
 }

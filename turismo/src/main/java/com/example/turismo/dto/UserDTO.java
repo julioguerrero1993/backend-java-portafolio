@@ -1,19 +1,16 @@
-package com.example.turismo.entity;
+package com.example.turismo.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+public class UserDTO {
 
-@Entity(name = "user_profile")
-public class UserEntity {
-	
-	@Id
 	private int id_user;
-	
+
 	private String nombre;
-	
+
 	private String password;
 	
 	private int tipo;
+	
+	private int id_customer;
 
 	public int getId_user() {
 		return id_user;
@@ -47,4 +44,11 @@ public class UserEntity {
 		this.tipo = tipo;
 	}
 
+	public int getId_customer() {
+		return id_customer;
+	}
+
+	public void setId_customer(int id_customer) {
+		this.id_customer = id_customer;
+	}
 }

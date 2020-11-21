@@ -4,7 +4,7 @@ public class DepartamentoDTO {
 
 	private int id_departamento;
 
-	private int comuna;
+	private String comuna;
 
 	private String descripcion;
 
@@ -17,13 +17,16 @@ public class DepartamentoDTO {
 	private int max_huespedes;
 
 	private int habitaciones;
+	
+	private String img;
+	
 
 	public DepartamentoDTO() {
 
 	}
 
-	public DepartamentoDTO(int id_departamento, int comuna, String descripcion, String dimension, int valor_diario,
-			String orientacion, int max_huespedes, int habitaciones) {
+	public DepartamentoDTO(int id_departamento, String comuna, String descripcion, String dimension, int valor_diario,
+			String orientacion, int max_huespedes, int habitaciones, String img) {
 		this.id_departamento = id_departamento;
 		this.comuna = comuna;
 		this.descripcion = descripcion;
@@ -32,6 +35,7 @@ public class DepartamentoDTO {
 		this.orientacion = orientacion;
 		this.max_huespedes = max_huespedes;
 		this.habitaciones = habitaciones;
+		this.img = img;
 	}
 
 	public int getId_departamento() {
@@ -42,11 +46,11 @@ public class DepartamentoDTO {
 		this.id_departamento = id_departamento;
 	}
 
-	public int getComuna() {
+	public String getComuna() {
 		return comuna;
 	}
 
-	public void setComuna(int comuna) {
+	public void setComuna(String comuna) {
 		this.comuna = comuna;
 	}
 
@@ -96,5 +100,13 @@ public class DepartamentoDTO {
 
 	public void setHabitaciones(int habitaciones) {
 		this.habitaciones = habitaciones;
+	}
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
 	}
 }

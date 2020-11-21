@@ -34,6 +34,9 @@ public class DepartamentoEntity {
 
 	@Column(name = "habitaciones")
 	private int habitaciones;
+	
+	@Column(name = "img")
+	private String img;
 
 	public int getId_departamento() {
 		return id_departamento;
@@ -97,6 +100,14 @@ public class DepartamentoEntity {
 
 	public void setHabitaciones(int habitaciones) {
 		this.habitaciones = habitaciones;
+	}
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
 	}
 
 }

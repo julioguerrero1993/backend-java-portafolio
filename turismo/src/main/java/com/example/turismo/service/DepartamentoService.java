@@ -7,8 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.turismo.entity.DepartamentoEntity;
-import com.example.turismo.repository.DepartamentoRepository;
+import com.turismo.apartament.infra.persistence.entity.DepartamentoEntity;
+import com.turismo.apartament.infra.persistence.repository.DepartamentoRepository;
 
 @Service
 public class DepartamentoService {

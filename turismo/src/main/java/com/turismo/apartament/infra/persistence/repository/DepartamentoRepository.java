@@ -1,10 +1,10 @@
-package com.example.turismo.repository;
+package com.turismo.apartament.infra.persistence.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.example.turismo.entity.DepartamentoEntity;
+import com.turismo.apartament.infra.persistence.entity.DepartamentoEntity;
 
 @Repository
 public interface DepartamentoRepository extends JpaRepository<DepartamentoEntity, Integer> {

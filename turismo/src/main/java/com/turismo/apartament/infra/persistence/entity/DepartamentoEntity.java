@@ -1,42 +1,44 @@
-package com.example.turismo.dto;
+package com.turismo.apartament.infra.persistence.entity;
 
-public class DepartamentoDTO {
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
+import com.example.turismo.entity.ComunaEntity;
+
+@Entity(name = "departamento")
+public class DepartamentoEntity {
+
+	@Id
 	private int id_departamento;
 
-	private String comuna;
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "comuna", referencedColumnName = "id_comuna")
+	private ComunaEntity comuna;
 
+	@Column(name = "descripcion")
 	private String descripcion;
 
+	@Column(name = "dimension")
 	private String dimension;
 
+	@Column(name = "valor_diario")
 	private int valor_diario;
 
+	@Column(name = "orientacion")
 	private String orientacion;
 
+	@Column(name = "max_huespedes")
 	private int max_huespedes;
 
+	@Column(name = "habitaciones")
 	private int habitaciones;
 	
+	@Column(name = "img")
 	private String img;
-	
-
-	public DepartamentoDTO() {
-
-	}
-
-	public DepartamentoDTO(int id_departamento, String comuna, String descripcion, String dimension, int valor_diario,
-			String orientacion, int max_huespedes, int habitaciones, String img) {
-		this.id_departamento = id_departamento;
-		this.comuna = comuna;
-		this.descripcion = descripcion;
-		this.dimension = dimension;
-		this.valor_diario = valor_diario;
-		this.orientacion = orientacion;
-		this.max_huespedes = max_huespedes;
-		this.habitaciones = habitaciones;
-		this.img = img;
-	}
 
 	public int getId_departamento() {
 		return id_departamento;
@@ -46,11 +48,11 @@ public class DepartamentoDTO {
 		this.id_departamento = id_departamento;
 	}
 
-	public String getComuna() {
+	public ComunaEntity getComuna() {
 		return comuna;
 	}
 
-	public void setComuna(String comuna) {
+	public void setComuna(ComunaEntity comuna) {
 		this.comuna = comuna;
 	}
 
@@ -109,4 +111,5 @@ public class DepartamentoDTO {
 	public void setImg(String img) {
 		this.img = img;
 	}
+
 }

@@ -1,4 +1,4 @@
-package com.example.turismo.controllers;
+package com.turismo.apartament.infra.controller;
 
 import java.util.List;
 
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.turismo.dto.DepartamentoDTO;
-import com.example.turismo.entity.DepartamentoEntity;
-import com.example.turismo.repository.DepartamentoRepository;
-import com.example.turismo.usecases.ApartamentUseCase;
+import com.turismo.apartament.application.usecase.ApartamentUseCase;
+import com.turismo.apartament.domain.model.entity.DepartamentoDTO;
+import com.turismo.apartament.infra.persistence.entity.DepartamentoEntity;
+import com.turismo.apartament.infra.persistence.repository.DepartamentoRepository;
 
 @RestController
 @RequestMapping("/apartament")

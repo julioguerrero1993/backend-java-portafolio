@@ -7,10 +7,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.turismo.controllers.DepartamentoController;
 import com.example.turismo.dto.UserDTO;
 import com.example.turismo.entity.UserEntity;
 import com.example.turismo.repository.UserProfileRepository;
+import com.turismo.apartament.infra.controller.DepartamentoController;
 
 @Service
 public class UserProfileService {

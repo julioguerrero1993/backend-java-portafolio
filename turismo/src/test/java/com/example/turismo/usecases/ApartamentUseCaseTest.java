@@ -7,10 +7,11 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.example.turismo.dto.DepartamentoDTO;
 import com.example.turismo.entity.ComunaEntity;
-import com.example.turismo.entity.DepartamentoEntity;
 import com.example.turismo.service.DepartamentoService;
+import com.turismo.apartament.application.usecase.ApartamentUseCase;
+import com.turismo.apartament.domain.model.entity.DepartamentoDTO;
+import com.turismo.apartament.infra.persistence.entity.DepartamentoEntity;
 
 
 class ApartamentUseCaseTest {

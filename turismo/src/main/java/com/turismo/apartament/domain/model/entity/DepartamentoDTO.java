@@ -1,42 +1,41 @@
-package com.example.turismo.entity;
+package com.turismo.apartament.domain.model.entity;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+public class DepartamentoDTO {
 
-@Entity(name = "departamento")
-public class DepartamentoEntity {
-
-	@Id
 	private int id_departamento;
 
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "comuna", referencedColumnName = "id_comuna")
-	private ComunaEntity comuna;
+	private String comuna;
 
-	@Column(name = "descripcion")
 	private String descripcion;
 
-	@Column(name = "dimension")
 	private String dimension;
 
-	@Column(name = "valor_diario")
 	private int valor_diario;
 
-	@Column(name = "orientacion")
 	private String orientacion;
 
-	@Column(name = "max_huespedes")
 	private int max_huespedes;
 
-	@Column(name = "habitaciones")
 	private int habitaciones;
-	
-	@Column(name = "img")
+
 	private String img;
+
+	public DepartamentoDTO() {
+
+	}
+
+	public DepartamentoDTO(int id_departamento, String comuna, String descripcion, String dimension, int valor_diario,
+			String orientacion, int max_huespedes, int habitaciones, String img) {
+		this.id_departamento = id_departamento;
+		this.comuna = comuna;
+		this.descripcion = descripcion;
+		this.dimension = dimension;
+		this.valor_diario = valor_diario;
+		this.orientacion = orientacion;
+		this.max_huespedes = max_huespedes;
+		this.habitaciones = habitaciones;
+		this.img = img;
+	}
 
 	public int getId_departamento() {
 		return id_departamento;
@@ -46,11 +45,11 @@ public class DepartamentoEntity {
 		this.id_departamento = id_departamento;
 	}
 
-	public ComunaEntity getComuna() {
+	public String getComuna() {
 		return comuna;
 	}
 
-	public void setComuna(ComunaEntity comuna) {
+	public void setComuna(String comuna) {
 		this.comuna = comuna;
 	}
 
@@ -109,5 +108,4 @@ public class DepartamentoEntity {
 	public void setImg(String img) {
 		this.img = img;
 	}
-
 }

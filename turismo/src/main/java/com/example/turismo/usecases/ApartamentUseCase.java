@@ -48,6 +48,30 @@ public class ApartamentUseCase {
 		return this.transformToDto(apartamentService.getById(id));
 	}
 	
+	public List<DepartamentoDTO> getListapartamentDTOByCity(String cityName){
+		List<DepartamentoDTO> listDto = null;
+		List<DepartamentoEntity> listEnt = apartamentService.getAllApartament();
+		if(!listEnt.isEmpty()) {
+			logger.info("get apartament");
+			listDto = new ArrayList<>();
+			for(DepartamentoEntity ent : listEnt) {
+				if(cityName.equals(ent.getComuna().getCiudad().getNombre())) {
+					listDto.add(new DepartamentoDTO(ent.getId_departamento(),
+							ent.getComuna().getNombre(),
+							ent.getDescripcion(),
+							ent.getDimension(),
+							ent.getValor_diario(),
+							ent.getOrientacion(),
+							ent.getMax_huespedes(),
+							ent.getHabitaciones(),
+							ent.getImg()));	
+				}
+				
+			}
+		}
+		return listDto;
+	}
+	
 	public boolean updateApartament(DepartamentoDTO deptoDTO) {
 		try {
 			DepartamentoEntity ent = apartamentService.getById(deptoDTO.getId_departamento());

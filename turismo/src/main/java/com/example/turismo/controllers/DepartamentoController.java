@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.turismo.dto.DepartamentoDTO;
-import com.example.turismo.entity.DepartamentoEntity;
-import com.example.turismo.repository.DepartamentoRepository;
 import com.example.turismo.usecases.ApartamentUseCase;
 
 @RestController
@@ -27,13 +25,27 @@ public class DepartamentoController {
 	@Autowired
 	private ApartamentUseCase apartamentUseCase;
 	
-	@Autowired
-	private DepartamentoRepository deptoRepo;
-
-	
 	@GetMapping("/get-apartaments")
 	public ResponseEntity<List<DepartamentoDTO>> getApartaments() {
 		List<DepartamentoDTO> listApartament = apartamentUseCase.getListapartamentDTO();
+		try {
+			if(listApartament.size() > 0) {
+				logger.info("getting apartaments");
+				return ResponseEntity.ok(listApartament);
+			} else {
+				return ResponseEntity.notFound().build();
+			}
+		}catch(Exception e) {
+			logger.error("ERROR GETTING ALL APARTAMENTS");
+			return ResponseEntity.notFound().build();
+		}
+
+	}
+	
+	@GetMapping("/get-apartaments-by-city/{cityName}")
+	public ResponseEntity<List<DepartamentoDTO>> getApartamentsByCity(@PathVariable("cityName") String cityName) {
+		logger.info("getting apartaments BY CITY");
+		List<DepartamentoDTO> listApartament = apartamentUseCase.getListapartamentDTOByCity(cityName);
 		try {
 			if(listApartament.size() > 0) {
 				logger.info("getting apartaments");

@@ -47,13 +47,23 @@ public class ReservaController {
 				List<ReservaEntity> listReserva = reservaRepo.findAll();
 				List<Integer> numbers = new ArrayList<Integer>();
  
-				for(ReservaEntity e : listReserva) {
-					numbers.add(e.getId_reserva());
+				
+				
+				if(listReserva.size() > 0){
+					for(ReservaEntity e : listReserva) {
+						numbers.add(e.getId_reserva());
+					}
 				}
 				
-				Collections.sort(numbers);
-				Collections.reverse(numbers);
-				int idaux = numbers.get(0)+1;
+				int idaux = 1;
+				
+				if(numbers.size() > 0) {
+					Collections.sort(numbers);
+					Collections.reverse(numbers);
+					idaux = numbers.get(0)+1;
+				}
+				
+				
 				logger.info("last reserva id {}", idaux);
 				ReservaEntity reserva = new ReservaEntity();
 				reserva.setId_reserva(idaux);

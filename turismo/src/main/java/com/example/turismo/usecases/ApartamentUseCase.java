@@ -73,20 +73,21 @@ public class ApartamentUseCase {
 	}
 	
 	public boolean updateApartament(DepartamentoDTO deptoDTO) {
+		DepartamentoEntity ent = null;
 		try {
-			DepartamentoEntity ent = apartamentService.getById(deptoDTO.getId_departamento());
-			if(ent == null) {
-				ent = transformToEntityFromDto(deptoDTO);
-				logger.info("apartament not exist, creating one");
-				apartamentService.save(ent);
-				return true;
-			} else {
-				return false;
-			}
+			ent = apartamentService.getById(deptoDTO.getId_departamento());
 		}catch(Exception e) {
 			logger.error("ERROR with Update apartament {}", e.getMessage());
 			return false;
 		}
+		if(ent == null) {
+			ent = transformToEntityFromDto(deptoDTO);
+			logger.info("apartament not exist, creating one");
+			apartamentService.save(ent);
+		} else {
+			apartamentService.save(ent);
+		}
+		return true;
 	}
 	
 	public DepartamentoEntity transformToEntityFromDto(DepartamentoDTO deptoDto) {

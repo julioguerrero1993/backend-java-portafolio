@@ -82,6 +82,7 @@ public class DepartamentoController {
 	public int updateApartament(@RequestBody DepartamentoDTO departamentoDTO) {
 		try{
 			if(departamentoDTO != null) {
+				this.apartamentUseCase.updateApartament(departamentoDTO);
 				return 1;
 			} else {
 				return 0;

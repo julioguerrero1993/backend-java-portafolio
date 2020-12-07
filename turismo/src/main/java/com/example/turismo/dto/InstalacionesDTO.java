@@ -1,23 +1,18 @@
-package com.example.turismo.entity;
+package com.example.turismo.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+public class InstalacionesDTO {
 
-@Entity(name = "instalaciones")
-public class InstalacionesEntity {
-	
-	@Id
 	private int id_instalacion;
-	
+
 	private String nombre;
-	
+
 	private String descripcion;
-	
-	public InstalacionesEntity() {
+
+	public InstalacionesDTO() {
 		super();
 	}
-
-	public InstalacionesEntity(int id_instalacion, String nombre, String descripcion) {
+	
+	public InstalacionesDTO(int id_instalacion, String nombre, String descripcion) {
 		super();
 		this.id_instalacion = id_instalacion;
 		this.nombre = nombre;
@@ -47,5 +42,4 @@ public class InstalacionesEntity {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-
 }

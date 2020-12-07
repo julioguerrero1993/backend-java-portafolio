@@ -1,13 +1,8 @@
-package com.example.turismo.entity;
+package com.example.turismo.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+public class CustomerDTO {
 
-@Entity(name = "cliente")
-public class ClienteEntity {
-
-	@Id
-	private int id_cliente;
+private int id_cliente;
 	
 	private int comuna;
 	
@@ -21,12 +16,12 @@ public class ClienteEntity {
 	
 	private int cliente_user;
 
-	public ClienteEntity() {
+	public CustomerDTO() {
 		super();
 	}
 
-	public ClienteEntity(int id_cliente, int comuna, String nombre, String fecha_nacimiento, String telefono,
-			String mail, int cliente_user) {
+	public CustomerDTO(int id_cliente, int comuna, String nombre, String fecha_nacimiento, String telefono, String mail,
+			int cliente_user) {
 		super();
 		this.id_cliente = id_cliente;
 		this.comuna = comuna;

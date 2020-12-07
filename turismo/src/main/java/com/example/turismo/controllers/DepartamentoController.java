@@ -78,7 +78,7 @@ public class DepartamentoController {
 
 	}
 	
-	@PostMapping
+	@PostMapping("/update-apartament")
 	public int updateApartament(@RequestBody DepartamentoDTO departamentoDTO) {
 		try{
 			if(departamentoDTO != null) {

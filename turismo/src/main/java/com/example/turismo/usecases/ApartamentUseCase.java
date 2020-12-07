@@ -78,7 +78,6 @@ public class ApartamentUseCase {
 			ent = apartamentService.getById(deptoDTO.getId_departamento());
 		}catch(Exception e) {
 			logger.error("ERROR with Update apartament {}", e.getMessage());
-			return false;
 		}
 		if(ent == null) {
 			ent = transformToEntityFromDto(deptoDTO);

@@ -1,5 +1,7 @@
 package com.example.turismo.controllers;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +35,12 @@ public class LoginController {
 		
 		if(userValidated != null) {
 			ClienteEntity cus = clienteRepo.getClienteByUserId(userValidated.getId_user());
-			if(cus != null) {
-				userValidated.setId_customer(cus.getId_cliente());
+			
+			List<ClienteEntity> listCus = clienteRepo.findAll();
+			for(ClienteEntity c : listCus) {
+				if(c.getCliente_user() == userValidated.getId_user()) {
+					userValidated.setId_customer(c.getId_cliente());
+				}
 			}
 			return ResponseEntity.ok(userValidated);
 		}

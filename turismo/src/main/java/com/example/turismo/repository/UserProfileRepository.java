@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.example.turismo.entity.UserEntity;
 
 @Repository
-public interface UserProfileRepository extends JpaRepository<UserEntity, Long>{
+public interface UserProfileRepository extends JpaRepository<UserEntity, Integer>{
 
 	@Query("SELECT u FROM user_profile u WHERE u.nombre = ?1 AND u.password = ?2")
 	public UserEntity getCredencialQuery(String name, String password);

@@ -10,12 +10,16 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.turismo.dto.ReservaDTO;
 import com.example.turismo.entity.ReservaEntity;
 import com.example.turismo.repository.ReservaRepository;
 
@@ -83,6 +87,20 @@ public class ReservaController {
 			return ResponseEntity.ok(reservaRepo.getBookingQuery(new Date(), 1));
 		}
 		
+	}
+	
+	@PostMapping("")
+	public ResponseEntity<HttpStatus> createReservva(@RequestBody ReservaDTO reservaDto){
+		ReservaEntity reserva = new ReservaEntity();
+		reserva.setId_reserva(reservaDto.getId_reserva());
+		reserva.setCliente(reservaDto.getCliente());
+		reserva.setDepartamento(reservaDto.getDepartamento());
+		reserva.setEstado(0);
+		reserva.setFecha_final(reservaDto.getFecha_final());
+		reserva.setFecha_inicio(reservaDto.getFecha_inicio());
+		reserva.setPrecio_total(reservaDto.getPrecio_total());
+		reservaRepo.save(reserva);
+		return ResponseEntity.ok(HttpStatus.OK);
 	}
 	
 	@GetMapping("/confirm-reserva/{id}")

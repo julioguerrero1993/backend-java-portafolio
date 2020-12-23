@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.turismo.dto.CheckListDTO;
+import com.example.turismo.entity.ReservaChecklistEntity;
+import com.example.turismo.repository.ReservaChecklistRepository;
 import com.example.turismo.service.CheckListService;
 
 @RestController
@@ -21,6 +23,14 @@ public class CheckListController {
 	
 	@Autowired
 	private CheckListService checklistService;
+	
+	@Autowired
+	private ReservaChecklistRepository repo;
+	
+	@GetMapping("/get-checklist-reserva")
+	public ResponseEntity<List<ReservaChecklistEntity>> getChecklistReserva() {
+		return ResponseEntity.ok(this.repo.findAll());
+	}
 
 	@GetMapping("/get-checklist")
 	public ResponseEntity<List<CheckListDTO>> getChecklist() {

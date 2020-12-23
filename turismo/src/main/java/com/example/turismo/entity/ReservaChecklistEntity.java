@@ -10,7 +10,7 @@ public class ReservaChecklistEntity {
 	private int id_reserva_checklist;
 	
 	private int checklist;
-	
+		
 	private int estado;
 
 	public int getId_reserva_checklist() {

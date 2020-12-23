@@ -42,7 +42,7 @@ public class InstalacionesService {
 			
 		}
 		if(instalacionFromDB != null) {
-			this.instalacionesRepo.save(instalacionFromDB);
+			this.instalacionesRepo.save(this.toEntity(instalacionDTO));
 		} else {
 			this.instalacionesRepo.save(this.toEntity(instalacionDTO));
 		}

@@ -84,7 +84,7 @@ public class ApartamentUseCase {
 			logger.info("apartament not exist, creating one");
 			apartamentService.save(ent);
 		} else {
-			apartamentService.save(ent);
+			apartamentService.save(transformToEntityFromDto(deptoDTO));
 		}
 		return true;
 	}

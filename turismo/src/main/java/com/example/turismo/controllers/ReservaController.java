@@ -20,7 +20,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.turismo.dto.ReservaDTO;
+import com.example.turismo.entity.ReservaChecklistEntity;
 import com.example.turismo.entity.ReservaEntity;
+import com.example.turismo.repository.ReservaChecklistRepository;
 import com.example.turismo.repository.ReservaRepository;
 
 @RestController
@@ -31,6 +33,7 @@ public class ReservaController {
 	
 	@Autowired
 	private ReservaRepository reservaRepo;
+	
 	
 	@GetMapping("/get-reservas")
 	public ResponseEntity<List<ReservaEntity>> getReservas(){
@@ -78,6 +81,7 @@ public class ReservaController {
 				reserva.setFecha_inicio(dateStr);
 				reserva.setPrecio_total(200000);
 				reservaRepo.save(reserva);
+
 				return ResponseEntity.ok(reserva);
 			}
 			
@@ -89,7 +93,7 @@ public class ReservaController {
 		
 	}
 	
-	@PostMapping("")
+	@PostMapping("/create-reserva")
 	public ResponseEntity<HttpStatus> createReservva(@RequestBody ReservaDTO reservaDto){
 		ReservaEntity reserva = new ReservaEntity();
 		reserva.setId_reserva(reservaDto.getId_reserva());

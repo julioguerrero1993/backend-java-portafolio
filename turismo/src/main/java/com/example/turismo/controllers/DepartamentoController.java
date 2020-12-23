@@ -36,7 +36,7 @@ public class DepartamentoController {
 				return ResponseEntity.notFound().build();
 			}
 		}catch(Exception e) {
-			logger.error("ERROR GETTING ALL APARTAMENTS");
+			logger.error("ERROR GETTING ALL APARTAMENTS {}", e);
 			return ResponseEntity.notFound().build();
 		}
 
